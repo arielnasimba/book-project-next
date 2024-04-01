@@ -1,14 +1,13 @@
 "use client";
 import React, { useEffect } from "react";
 import Carousel from "../Carousel/Carousel";
-import { useDispatch, useSelector } from "react-redux";
 import { addToCategories, addToContent } from "../../redux/slices/contentSlice";
 import { fetchUserData } from "../../redux/slices/userSlice";
 import Link from "next/link";
 import BookCategories from "../BookCategories/BookCategories";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function Maincomponent() {
-    
     const dispatch = useDispatch();
     const { data, loading, error} = useSelector((state) => state.user);    
     useEffect(() => {
@@ -24,7 +23,7 @@ export default function Maincomponent() {
       className={`main-component w-[100dvw] h-[150dvh]  flex flex-col gap-y-4 p-7 `}
     >
       <div className="title-area text-[2rem] w-full h-[6rem]    font-bold  ">
-        <h1 className=" w-[60%]">Welcome to Story Arcadia</h1>
+        <h1 className=" w-[60%]">Welcome to Story Arcadia </h1>
       </div>
 
       <div className="search-categorie-area w-[80%] h-[2.4rem]  grid grid-cols-2 gap-x-3 text-white font-semibold

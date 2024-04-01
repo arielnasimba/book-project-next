@@ -1,10 +1,10 @@
 "use client"
 import React, { useEffect } from "react";
 import CategoriesCard from "../CategoriesCard/CategoriesCard";
-import { useDispatch, useSelector } from "react-redux";
 import { fetchUserData } from "../../redux/slices/userSlice";
 import { addToCategories, addToContent } from "../../redux/slices/contentSlice";
 import MiniCardCategorie from "../MiniCardCategorie/MiniCardCategorie";
+import { useDispatch, useSelector } from "react-redux";
 
 
 export default function BookCategories(){

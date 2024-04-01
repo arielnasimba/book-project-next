@@ -1,13 +1,14 @@
 // "use client"
 import { addToCategories } from '../../redux/slices/contentSlice';
 import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
 import { BookOpenIcon } from '@heroicons/react/24/solid';
+import { useDispatch, useSelector } from 'react-redux';
 
 export default function CategoriesCard({datas}) {
 
     const dispatch = useDispatch()
     const libraryGenres = useSelector( ( state) => state.library.categories)
+
     
 
   return (

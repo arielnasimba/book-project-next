@@ -1,13 +1,12 @@
 "use client";
 import React, { useEffect } from "react";
 import Carousel from "../Carousel/Carousel";
-import { useDispatch, useSelector } from "react-redux";
 import { addToCategories, addToContent } from "../../redux/slices/contentSlice";
 import { fetchUserData } from "../../redux/slices/userSlice";
 import CategoriesArea from "../CategoriesArea/CategoriesArea";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function MainGenrePageComponent() {
-    
     const dispatch = useDispatch();
     const { data, loading, error} = useSelector((state) => state.user);    
     useEffect(() => {
