@@ -67,9 +67,7 @@ if (data != null) {
                 // JSON.stringify(data)
                     // JSON.stringify(libraryCategories)
                     data.map((singleData,i) =>{
-                      (singleData.genre_list).split(",").map((el) => {
-                        return( <p>{el} </p> )
-                      })
+              
                     return(
 
                         <div className="" key={i}
