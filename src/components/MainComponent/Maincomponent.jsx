@@ -17,12 +17,7 @@ export default function Maincomponent() {
     dispatch(addToContent(data))
     dispatch(addToCategories(data))
 
-    if (loading) {
-        return <p>Loading...</p>;
-      }
-    if (error) {
-        return <p>Error</p>;
-      }
+
   return (
     <div
       className={`main-component w-[100dvw] h-[150dvh]  flex flex-col gap-y-4 p-7 `}

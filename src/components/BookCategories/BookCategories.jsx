@@ -13,16 +13,25 @@ export default function BookCategories(){
     const { data, loading, error} = useSelector((state) => state.user);
     const libraryContent = useSelector((state) => state.library.content)
     const libraryCategories = useSelector((state) => state.library.categories)
-
-const uniqueElements = new Set(libraryCategories.flatMap(item => item.split(',')));
-
-// Convertir l'ensemble en tableau
-const list_of_categories = [...uniqueElements];
     
-  return (
-    <div
-      className={`book-categories w-full h-[50rem]  flex flex-col gap-y-2 pt-2     `}
-    >
+    useEffect(() => {
+        dispatch(fetchUserData())
+    }, [dispatch])
+    if (loading) {
+        return <p>Loading...</p>;
+    }
+    if (error) {
+        return <p>Error</p>;
+    }
+    
+    const uniqueElements = new Set(libraryCategories.flatMap(item => item.split(',')));
+    
+    // Convertir l'ensemble en tableau
+    const list_of_categories = [...uniqueElements];
+    return (
+        <div
+        className={`book-categories w-full h-[50rem]  flex flex-col gap-y-2 pt-2     `}
+        >
       <div className="title-area font-semibold text-[1.2rem] mt-6 mb-4">
         <h2> Book Categories</h2>
       </div>
