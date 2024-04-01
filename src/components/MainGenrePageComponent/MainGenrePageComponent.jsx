@@ -9,12 +9,12 @@ import { useDispatch, useSelector } from "react-redux";
 export default function MainGenrePageComponent() {
     const dispatch = useDispatch();
     const { data, loading, error} = useSelector((state) => state.user);    
-    useEffect(() => {
-        dispatch(fetchUserData())
-    }, [dispatch])
+    // useEffect(() => {
+    //     dispatch(fetchUserData())
+    // }, [dispatch])
     
-    dispatch(addToContent(data))
-    dispatch(addToCategories(data))
+    // dispatch(addToContent(data))
+    // dispatch(addToCategories(data))
 
 
   return (

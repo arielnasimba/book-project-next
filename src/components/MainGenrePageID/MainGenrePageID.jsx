@@ -15,21 +15,23 @@ export default function MainGenrePageID(){
     const libraryContent = useSelector((state) => state.library.content)
     const libraryCategories = useSelector((state) => state.library.categories)
 
-    useEffect(() => {
-        dispatch(addToContent(data))
-    }, [])
-    
-    useEffect(() => {
-      dispatch(fetchUserData())
+    // useEffect(() => {
+    //   dispatch(fetchUserData())
+      
+    // }, [dispatch])
 
-    }, [dispatch])
     
+    // useEffect(() => {
+    //     dispatch(addToContent(data))
+
+    // }, [])
     // if (loading) {
     //     return <p>Loading ...</p>
     // }
     // if (error) {
     //     return <p>Error failed to </p>
     // }
+
 
 
     let tab = [ "Young Adult,Fiction,Science Fiction,Dystopia,Fantasy","Fantasy,Young Adult,Fiction" , "Classics,Fiction,Historical,Historical Fiction,Academic,School",
@@ -41,6 +43,13 @@ const uniqueElements = new Set(libraryCategories.flatMap(item => item.split(',')
 const list_of_categories = [...uniqueElements];
 const title = params.id.replace(/[^a-zA-Z ]/g, ' ')
     
+let filteredBooks = null;
+if (data != null) {
+  filteredBooks = data.filter(book => {
+    const genres = book.genre_list.split(",");
+    return genres.includes(title);
+  });
+}
   return (
     <div
       className={`book-categories w-full h-[50rem]  flex flex-col gap-y-2 pt-2 p-7 `}
@@ -58,14 +67,17 @@ const title = params.id.replace(/[^a-zA-Z ]/g, ' ')
                 // JSON.stringify(data)
                     // JSON.stringify(libraryCategories)
                     data.map((singleData,i) =>{
-
+                      (singleData.genre_list).split(",").map((el) => {
+                        return( <p>{el} </p> )
+                      })
                     return(
 
                         <div className="" key={i}
                         
                         >   
-                        <BookCard  datas={singleData} />
+                        {/* <BookCard  datas={singleData} /> */}
 
+                      <p>{singleData.id} </p>
                         </div>
                     )
                 })
