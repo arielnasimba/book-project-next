@@ -63,11 +63,11 @@ const list_of_categories = [...uniqueElements];
             data ? (
                 // JSON.stringify(data)
                     // JSON.stringify(libraryCategories)
-                    list_of_categories.map((singleData) =>{
+                    list_of_categories.map((singleData,i) =>{
 
                     return(
 
-                        <div className=""
+                        <div className="" key={i}
                         
                         >   
                         <CategoriesCard datas={singleData} />
