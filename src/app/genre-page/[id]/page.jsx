@@ -1,8 +1,8 @@
-import Footer from "@/components/Footer/Footer";
-import Maincomponent from "@/components/MainComponent/Maincomponent";
-import MainGenrePageComponent from "@/components/MainGenrePageComponent/MainGenrePageComponent";
-import MainGenrePageID from "@/components/MainGenrePageID/MainGenrePageID";
-import Navbar from "@/components/Navbar/Navbar";
+import Footer from "../../../components/Footer/Footer";
+import Maincomponent from "../../../components/MainComponent/Maincomponent";
+import MainGenrePageComponent from "../../../components/MainGenrePageComponent/MainGenrePageComponent";
+import MainGenrePageID from "../../../components/MainGenrePageID/MainGenrePageID";
+import Navbar from "../../../components/Navbar/Navbar";
 
 export default function GenrePageUnique() {
 
