@@ -27,8 +27,8 @@ const list_of_categories = [...uniqueElements];
         <h2> Book Categories</h2>
       </div>
 
-      <div className="card-categories-area w-full h-[95%]  grid grid-cols-2 gap-x-6 gap-y-6  overflow-y-scroll
-                    tablet:grid-cols-3 tablet:gap-x-4  desktopM:grid-cols-4 desktopM:gap-x-2 desktopL:grid-cols-5
+      <div className="card-categories-area w-full h-[95%]  grid grid-cols-2 gap-x-6 gap-y-6  overflow-y-scroll pt-5
+                    tablet:grid-cols-3 tablet:gap-x-4  desktopM:grid-cols-4 desktopM:gap-x-2 desktopL:grid-cols-5 desktopxl:grid-cols-7
       ">
 
 

@@ -17,7 +17,12 @@ export default function Maincomponent() {
     dispatch(addToContent(data))
     dispatch(addToCategories(data))
 
-
+    if (loading) {
+        return <p>Loading...</p>;
+      }
+    if (error) {
+        return <p>Error</p>;
+      }
   return (
     <div
       className={`main-component w-[100dvw] h-[150dvh]  flex flex-col gap-y-4 p-7 `}
@@ -27,7 +32,7 @@ export default function Maincomponent() {
       </div>
 
       <div className="search-categorie-area w-[80%] h-[2.4rem]  grid grid-cols-2 gap-x-3 text-white font-semibold
-                        tablet:w-[50%] desktopM:w-[40%] desktopL:w-[26%] 
+                        tablet:w-[50%] desktopM:w-[40%] desktopL:w-[26%] desktopxl:w-[19%]
       ">
         <button className="bg-black rounded-3xl " type="button">
           Search

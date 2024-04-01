@@ -19,6 +19,7 @@ export default function   Navbar() {
           className={`w-[8%] h-full  flex 
                     tablet:w-[5%]
                     desktopL:w-[4%] hover:cursor-pointer
+                    desktopxl:w-[2.5%] 
             `}
         >
           <Bars3CenterLeftIcon className={`w-full m-auto text-black`} />
@@ -30,6 +31,7 @@ export default function   Navbar() {
                 tablet:w-[14%]
                 desktopM:w-[12%]
                 desktopL:w-[9%]
+                desktopxl:w-[7%] 
             `}
         >
           <li className="flex ">
@@ -64,6 +66,7 @@ export default function   Navbar() {
                                                 tablet:absolute  tablet:top-[1.9rem] tablet:w-[1.5rem] tablet:left-[27.3rem]
                                                 desktopM:left-[38.5rem]
                                                 desktopL:left-[55rem]
+                                                desktopxl:left-[71.5rem]
                                                 `}
           />
         </li>
@@ -72,6 +75,7 @@ export default function   Navbar() {
                             tablet:w-[4%] 
                             desktopM:w-[3%] desktopM:ml-8
                             desktopL:w-[2%] desktopL:ml-24
+                            desktopxl:w-[1.5%] desktopxl:ml-24
             `}
         >
           <BookmarkIcon className={`w-full text-black `} />{" "}
@@ -81,6 +85,7 @@ export default function   Navbar() {
                             tablet:w-[4%]   tablet:-ml-8 tablet:-mr-8 
                             desktopM:w-[3%] desktopM:-ml-20 desktopM:-mr-20
                             desktopL:w-[2%] desktopL:-ml-36 desktopL:-mr-36
+                            desktopxl:w-[1.5%] desktopxl:-ml-36 desktopxl:-mr-36
             `}
         >
           <ShoppingBagIcon className={`w-full text-black`} />{" "}

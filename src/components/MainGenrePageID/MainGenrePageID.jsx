@@ -4,23 +4,25 @@ import CategoriesCard from "../CategoriesCard/CategoriesCard";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchUserData } from "../../redux/slices/userSlice";
 import { addToCategories, addToContent } from "../../redux/slices/contentSlice";
+import BookCard from "../BookCard/BookCard";
+import { useParams } from "next/navigation";
 
 
 export default function MainGenrePageID(){
-
+  const params = useParams();
     const dispatch = useDispatch();
     const { data, loading, error} = useSelector((state) => state.user);
     const libraryContent = useSelector((state) => state.library.content)
     const libraryCategories = useSelector((state) => state.library.categories)
 
-    // useEffect(() => {
-    //     dispatch(addToContent(data))
-    // }, [])
+    useEffect(() => {
+        dispatch(addToContent(data))
+    }, [])
     
-    // useEffect(() => {
-    //   dispatch(fetchUserData())
+    useEffect(() => {
+      dispatch(fetchUserData())
 
-    // }, [dispatch])
+    }, [dispatch])
     
     // if (loading) {
     //     return <p>Loading ...</p>
@@ -37,33 +39,32 @@ const uniqueElements = new Set(libraryCategories.flatMap(item => item.split(',')
 
 // Convertir l'ensemble en tableau
 const list_of_categories = [...uniqueElements];
+const title = params.id.replace(/[^a-zA-Z ]/g, ' ')
     
   return (
     <div
-      className={`book-categories w-full h-[50rem]  flex flex-col gap-y-2 pt-2 `}
+      className={`book-categories w-full h-[50rem]  flex flex-col gap-y-2 pt-2 p-7 `}
     >
       <div className="title-area font-semibold text-[1.2rem]">
-        <h2>  Categories</h2>
+        <h2> {title}  Categories</h2>
       </div>
 
       <div className="card-categories-area w-full h-[95%]  grid grid-cols-2 gap-x-6 gap-y-6
                     tablet:grid-cols-3
       ">
 
-
-
         {
             data ? (
                 // JSON.stringify(data)
                     // JSON.stringify(libraryCategories)
-                    list_of_categories.map((singleData,i) =>{
+                    data.map((singleData,i) =>{
 
                     return(
 
                         <div className="" key={i}
                         
                         >   
-                        <CategoriesCard datas={singleData} />
+                        <BookCard  datas={singleData} />
 
                         </div>
                     )
