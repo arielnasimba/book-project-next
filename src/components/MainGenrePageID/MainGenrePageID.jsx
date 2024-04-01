@@ -43,20 +43,13 @@ const list_of_categories = [...uniqueElements];
       className={`book-categories w-full h-[50rem]  flex flex-col gap-y-2 pt-2 `}
     >
       <div className="title-area font-semibold text-[1.2rem]">
-        <h2> Book Categories</h2>
+        <h2>  Categories</h2>
       </div>
 
       <div className="card-categories-area w-full h-[95%]  grid grid-cols-2 gap-x-6 gap-y-6
                     tablet:grid-cols-3
       ">
-        {/* <CategoriesCard />
-        <CategoriesCard />
-        <CategoriesCard />
-        <CategoriesCard />
-        <CategoriesCard />
-        <CategoriesCard />
-        <CategoriesCard />
-        <CategoriesCard /> */}
+
 
 
         {

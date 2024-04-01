@@ -12,17 +12,19 @@ export default function MiniCardCategorie({datas}) {
 
   return (
     <div className={`categories-card w-[10.7rem] h-[3.7rem]  rounded-3xl border flex  p-3 justify-between items-center
-                    tablet:w-[14rem] tablet:h-[14rem] cursor-pointer border-black
+                    tablet:w-[14rem] tablet:h-[4.7rem] cursor-pointer border-black tablet:p-4
     ` }>
 
         {/* <p className='m-auto'> card template</p> */}
 
-        <div className="left w-[1.5rem] h-[1.5rem] flex my-auto">
+        <div className="left w-[1.5rem] h-[1.5rem] flex my-auto ">
 
                     <BookOpenIcon className='w-[1.5rem] h-[1.5rem]  m-auto' />
         </div>
 
-        <div className="right w-[6.7rem] h-[3rem]  text-center flex">
+        <div className="right w-[6.7rem] h-[3rem]  text-center flex
+                tablet:w-[9.7rem] 
+        ">
 
 
         <h5 className='text-[1rem] m-auto'>{datas} </h5>

@@ -21,23 +21,16 @@ const list_of_categories = [...uniqueElements];
     
   return (
     <div
-      className={`book-categories w-full h-[50rem]  flex flex-col gap-y-2 pt-2 overflow-y-scroll     `}
+      className={`book-categories w-full h-[50rem]  flex flex-col gap-y-2 pt-2     `}
     >
-      <div className="title-area font-semibold text-[1.2rem]">
+      <div className="title-area font-semibold text-[1.2rem] mt-6 mb-4">
         <h2> Book Categories</h2>
       </div>
 
-      <div className="card-categories-area w-full h-[95%]  grid grid-cols-2 gap-x-6 gap-y-6
-                    tablet:grid-cols-3
+      <div className="card-categories-area w-full h-[95%]  grid grid-cols-2 gap-x-6 gap-y-6  overflow-y-scroll
+                    tablet:grid-cols-3 tablet:gap-x-4  desktopM:grid-cols-4 desktopM:gap-x-2 desktopL:grid-cols-5
       ">
-        {/* <CategoriesCard />
-        <CategoriesCard />
-        <CategoriesCard />
-        <CategoriesCard />
-        <CategoriesCard />
-        <CategoriesCard />
-        <CategoriesCard />
-        <CategoriesCard /> */}
+
 
 
         {

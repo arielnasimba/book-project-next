@@ -8,7 +8,7 @@ import Image from "next/image";
 export default function Footer() {
   return (
     <footer
-      className={`w-[95%]  mx-auto h-[50rem] bg-[rgba(221,221,221,0.4)] rounded-3xl border-white border mb-10  mt-4 grid grid-cols-1 grid-rows-4 p-5 gap-y-1  
+      className={`w-[95%]  mx-auto h-[50rem] bg-[rgba(221,221,221,0.1)]  rounded-3xl border-[rgba(0,0,0,0.2)] border mb-10  mt-4 grid grid-cols-1 grid-rows-4 p-5 gap-y-1  
                     tablet:grid-cols-2 tablet:grid-rows-2 tablet:h-[30rem]  
                     desktopM:grid-cols-4 desktopM:h-[13rem]
                     desktopL:grid-cols-4 desktopL:h-[12.5rem]
@@ -18,7 +18,7 @@ export default function Footer() {
         <div className="title-area relative">
           <h2 className="text-[1.7rem] 
                             desktopM:text-[1.35rem]
-          ">Who we are ? </h2>
+          ">Who are we ? </h2>
 
           <span
             class="absolute -bottom-[0.1rem] left-0 w-[5.2rem] h-[0.12rem] bg-black 
@@ -31,7 +31,7 @@ export default function Footer() {
         </div>
         <div className="sections-list-area flex flex-col w-auto ">
           <ul className="flex flex-col justify-between text-[1.2rem] desktopM:text-[1.1rem]">
-            <Link href={`/`}>Who we are ?</Link>
+            <Link href={`/`}>Who are we?</Link>
             <Link href={`/`}>Our Services</Link>
             <Link href={`/`}>Contact Us</Link>
           </ul>

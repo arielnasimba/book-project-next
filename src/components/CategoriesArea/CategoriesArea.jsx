@@ -5,6 +5,7 @@ import { fetchUserData } from "../../redux/slices/userSlice";
 import { addToCategories, addToContent } from "../../redux/slices/contentSlice";
 import MiniCardCategorie from "../MiniCardCategorie/MiniCardCategorie";
 import { useDispatch, useSelector } from "react-redux";
+import Link from "next/link";
 
 
 export default function CategoriesArea(){
@@ -23,12 +24,12 @@ const list_of_categories = [...uniqueElements];
     <div
       className={`book-categories w-full h-[50rem]  flex flex-col gap-y-2 pt-2 `}
     >
-      <div className="title-area font-semibold text-[1.2rem]">
+      <div className="title-area font-semibold text-[1.2rem] mb-4">
         <h2> Book Genres</h2>
       </div>
 
       <div className="card-categories-area w-full h-[95%]  grid grid-cols-2 gap-x-6 gap-y-6
-                    tablet:grid-cols-3
+                    tablet:grid-cols-3 desktopM:grid-cols-4 desktopL:grid-cols-5
       ">
         {/* <CategoriesCard />
         <CategoriesCard />
@@ -51,7 +52,12 @@ const list_of_categories = [...uniqueElements];
                         <div className="" key={i}
                         
                         >   
+                        <Link
+                        href={`/genre-page/${singleData}`}
+                        >
+                        
                         <MiniCardCategorie datas={singleData} />
+                        </Link>
 
                         </div>
                     )

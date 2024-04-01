@@ -23,16 +23,9 @@ export default function MainGenrePageComponent() {
     >
 
 
-      <div className="search-categorie-area w-[80%] h-[2.4rem]  grid grid-cols-2 gap-x-3 text-white font-semibold
-                        tablet:w-[50%] desktopM:w-[40%] desktopL:w-[26%] 
-      ">
-        <button className="bg-black rounded-3xl " type="button">
-          Search
-        </button>
 
-      </div>
 
-      <div className="categories-books-area">
+      <div className="categories-books-area ">
 
         <CategoriesArea />
         
