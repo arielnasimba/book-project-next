@@ -11,6 +11,9 @@ import Link from "next/link";
 export default function CategoriesArea(){
 
     const dispatch = useDispatch();
+
+    
+
     const { data, loading, error} = useSelector((state) => state.user);
     const libraryContent = useSelector((state) => state.library.content)
     const libraryCategories = useSelector((state) => state.library.categories)
@@ -42,7 +45,7 @@ const list_of_categories = [...uniqueElements];
 
 
         {
-            data ? (
+            libraryCategories ? (
                 // JSON.stringify(data)
                     // JSON.stringify(libraryCategories)
                     list_of_categories.map((singleData, i) =>{
@@ -65,7 +68,7 @@ const list_of_categories = [...uniqueElements];
 
 
             ) : 
-                <p></p>
+                <p>hello</p>
 
         }
 

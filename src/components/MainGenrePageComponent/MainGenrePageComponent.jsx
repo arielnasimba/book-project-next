@@ -6,8 +6,12 @@ import { fetchUserData } from "../../redux/slices/userSlice";
 import CategoriesArea from "../CategoriesArea/CategoriesArea";
 import { useDispatch, useSelector } from "react-redux";
 
-export default function MainGenrePageComponent() {
+export default function MainGenrePageComponent({products}) {
     const dispatch = useDispatch();
+      -  
+      dispatch(addToContent(products))
+      dispatch(addToCategories(products))
+    
     const { data, loading, error} = useSelector((state) => state.user);    
     // useEffect(() => {
     //     dispatch(fetchUserData())
@@ -27,7 +31,7 @@ export default function MainGenrePageComponent() {
 
       <div className="categories-books-area ">
 
-        <CategoriesArea />
+        <CategoriesArea  />
         
       </div>
     </div>

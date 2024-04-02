@@ -6,12 +6,9 @@ import { addToCategories, addToContent } from "../../redux/slices/contentSlice";
 import MiniCardCategorie from "../MiniCardCategorie/MiniCardCategorie";
 import { useDispatch, useSelector } from "react-redux";
 
-async function getProduct(){
-  const res = await fetch('https:/example-data.draftbit.com/books')
-  return res.json()
-}
-export default async function BookCategories({products}){
-  const products = await getProduct()
+
+export default function BookCategories(){
+
     const dispatch = useDispatch();
     // dispatch(addToContent(products))
 
@@ -31,7 +28,7 @@ export default async function BookCategories({products}){
 
     // dispatch(addToContent(products))
     
-    const uniqueElements = new Set(products.flatMap(item => item.split(',')));
+    const uniqueElements = new Set(libraryCategories.flatMap(item => item.split(',')));
     
     // Convertir l'ensemble en tableau
     const list_of_categories = [...uniqueElements];
@@ -71,7 +68,7 @@ export default async function BookCategories({products}){
                 <p></p>
 
         } */}
-        { products ? 
+        { libraryCategories  ? 
          ( list_of_categories.map((singleData, i) => {
 
             return(
