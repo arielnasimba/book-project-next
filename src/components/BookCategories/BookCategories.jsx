@@ -1,18 +1,18 @@
+"use client"
 import React, { useEffect } from "react";
 import CategoriesCard from "../CategoriesCard/CategoriesCard";
 import { fetchUserData } from "../../redux/slices/userSlice";
 import { addToCategories, addToContent } from "../../redux/slices/contentSlice";
 import MiniCardCategorie from "../MiniCardCategorie/MiniCardCategorie";
 import { useDispatch, useSelector } from "react-redux";
-import {getData} from "../../lib/getData"
 
 
-const  BookCategories = async() => {
+export default function BookCategories(){
 
-    // const dispatch = useDispatch();
-    // const { data, loading, error} = useSelector((state) => state.user);
-    // const libraryContent = useSelector((state) => state.library.content)
-    // const libraryCategories = useSelector((state) => state.library.categories)
+    const dispatch = useDispatch();
+    const { data, loading, error} = useSelector((state) => state.user);
+    const libraryContent = useSelector((state) => state.library.content)
+    const libraryCategories = useSelector((state) => state.library.categories)
     
     // useEffect(() => {
     //     dispatch(fetchUserData())
@@ -24,19 +24,10 @@ const  BookCategories = async() => {
     //     return <p>Error</p>;
     // }
     
-    // const uniqueElements = new Set(libraryCategories.flatMap(item => item.split(',')));
+    const uniqueElements = new Set(libraryCategories.flatMap(item => item.split(',')));
     
-    // // Convertir l'ensemble en tableau
-    // const list_of_categories = [...uniqueElements];
-    let apiData = null;
-  useEffect( async () => {
-
-    apiData = await getData();
-
-    
-  }, [])
-  
-
+    // Convertir l'ensemble en tableau
+    const list_of_categories = [...uniqueElements];
     return (
         <div
         className={`book-categories w-full h-[50rem]  flex flex-col gap-y-2 pt-2     `}
@@ -51,7 +42,7 @@ const  BookCategories = async() => {
 
 
 
-        {/* {
+        {
             data ? (
                 // JSON.stringify(data)
                     // JSON.stringify(libraryCategories)
@@ -72,20 +63,6 @@ const  BookCategories = async() => {
             ) : 
                 <p></p>
 
-        } */}
-
-        { apiData != null ? 
-(          apiData.map((books, i) =>  {
-
-            return(
-
-              <CategoriesCard  key={books.id}/>
-            )
-          }) 
-)
-          :
-
-          <p>failed</p>
         }
 
 
@@ -94,4 +71,3 @@ const  BookCategories = async() => {
   );
 }
 
-export default BookCategories;

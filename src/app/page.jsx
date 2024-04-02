@@ -7,7 +7,7 @@ import Navbar from "../components/Navbar/Navbar";
 import Image from "next/image";
 import { useEffect } from "react";
 import { fetchUserData } from "../redux/slices/userSlice";
-import { addToContent } from "../redux/slices/contentSlice";
+import { addToCategories, addToContent } from "../redux/slices/contentSlice";
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -19,6 +19,8 @@ export default function Home() {
   }, [dispatch])
 
   dispatch(addToContent(data))
+  dispatch(addToCategories(data))
+
   return (
     <main className="w-[100dvw] h-[250dvh] flex flex-col ">
 
