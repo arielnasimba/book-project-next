@@ -1,7 +1,7 @@
 import React from 'react'
 import Navbar from '../../components/Navbar/Navbar'
 import Footer from '../../components/Footer/Footer'
-import FavoritesArea from '../../components/FavoritesArea/FavoritesArea'
+import FavoriesArea from '../../components/FavoriesArea/FavoriesArea'
 
 export default function FavoritesPage() {
   return (
@@ -14,8 +14,9 @@ export default function FavoritesPage() {
 </div>
 
 <div className="main-area w-full h-[85dvh]  tablet:h-[98dvh] ">
+    
 
-<FavoritesArea />
+<FavoriesArea />
 </div>
 
 

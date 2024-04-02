@@ -82,7 +82,7 @@ export default function   Navbar() {
           <BookmarkIcon className={`w-full text-black `} />{" "}
         </Link>
         <Link
-        href={`/favorites-page`}
+        href={`/cart-page`}
           className={`w-[6%] h-full  flex hover:cursor-pointer
                             tablet:w-[4%]   tablet:-ml-8 tablet:-mr-8 
                             desktopM:w-[3%] desktopM:-ml-20 desktopM:-mr-20

@@ -3,7 +3,7 @@ import Link from "next/link";
 import React from "react";
 import btn_icon from "../../images-dir/btnIcon";
 
-export default function FavoritesArea() {
+export default function CartArea() {
   return (
     <div className={`w-full h-full flex flex-col  px-7 gap-6 `}>
       <Link href={`/`} className=" w-[1.2rem] h-[1.2rem] pt-[0.2rem] ">

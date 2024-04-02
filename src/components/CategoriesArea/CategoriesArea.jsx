@@ -33,6 +33,7 @@ const list_of_categories = [...uniqueElements];
 
       <div className="card-categories-area w-full h-[95%]  grid grid-cols-2 gap-x-6 gap-y-6 overflow-y-scroll
                     tablet:grid-cols-3 tablet:gap-x-5 desktopM:gap-x-3  desktopM:grid-cols-4 desktopL:grid-cols-5 desktopxl:grid-cols-6
+                    
       ">
         {/* <CategoriesCard />
         <CategoriesCard />
