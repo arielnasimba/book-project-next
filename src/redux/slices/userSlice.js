@@ -3,11 +3,6 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 export const fetchUserData = createAsyncThunk('user/fetchUserData', async () => {
   const response = await fetch('https:/example-data.draftbit.com/books');
   const jsonData = await response.json();
-  if (jsonData == null) {
-    const response2 = await fetch('https:/example-data.draftbit.com/books');
-    const jsonData2 = await response2.json();
-    return jsonData2;
-  }
   return jsonData;
 });
 // Define the user slice

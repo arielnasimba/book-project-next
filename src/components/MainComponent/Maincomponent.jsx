@@ -7,15 +7,22 @@ import Link from "next/link";
 import BookCategories from "../BookCategories/BookCategories";
 import { useDispatch, useSelector } from "react-redux";
 
-export default function Maincomponent() {
+export default function Maincomponent({products} ) {
     const dispatch = useDispatch();
+  useEffect(() => {
+-  
+dispatch(addToContent(products))
+dispatch(addToCategories(products))
+  }, [])
+  
+
     const { data, loading, error} = useSelector((state) => state.user);    
     // useEffect(() => {
     //     dispatch(fetchUserData())
     // }, [dispatch])
     
-    // dispatch(addToContent(data))
-    // dispatch(addToCategories(data))
+  
+    
 
 
   return (
@@ -48,7 +55,7 @@ export default function Maincomponent() {
       </div>
 
       <div className="categories-books-area">
-        <BookCategories />
+        <BookCategories products={products} />
       </div>
     </div>
   );

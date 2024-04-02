@@ -9,17 +9,24 @@ import { useEffect } from "react";
 import { fetchUserData } from "../redux/slices/userSlice";
 import { addToCategories, addToContent } from "../redux/slices/contentSlice";
 
-export default function Home() {
-  const dispatch = useDispatch();
-  const { data, loading, error} = useSelector((state) => state.user);
 
-  useEffect(() => {
-    dispatch(fetchUserData())
+async function getProduct(){
+  const res = await fetch('https:/example-data.draftbit.com/books')
+  return res.json()
+}
+
+export default async function Home() {
+  const products = await getProduct()
+  // const dispatch = useDispatch();
+  // const { data, loading, error} = useSelector((state) => state.user);
+
+  // useEffect(() => {
+  //   dispatch(fetchUserData())
     
-  }, [dispatch])
+  // }, [dispatch])
 
-  dispatch(addToContent(data))
-  dispatch(addToCategories(data))
+  // dispatch(addToContent(data))
+  // dispatch(addToCategories(data))
 
   return (
     <main className="w-[100dvw] h-[250dvh] flex flex-col ">
@@ -32,7 +39,7 @@ export default function Home() {
 
       <div className="main-area">
 
-        <Maincomponent />
+        <Maincomponent products={products} />
       </div>
 
       <Footer/>

@@ -7,9 +7,11 @@ import MiniCardCategorie from "../MiniCardCategorie/MiniCardCategorie";
 import { useDispatch, useSelector } from "react-redux";
 
 
-export default function BookCategories(){
+export default function BookCategories({products}){
 
     const dispatch = useDispatch();
+    // dispatch(addToContent(products))
+
     const { data, loading, error} = useSelector((state) => state.user);
     const libraryContent = useSelector((state) => state.library.content)
     const libraryCategories = useSelector((state) => state.library.categories)
@@ -23,6 +25,8 @@ export default function BookCategories(){
     // if (error) {
     //     return <p>Error</p>;
     // }
+
+    // dispatch(addToContent(products))
     
     const uniqueElements = new Set(libraryCategories.flatMap(item => item.split(',')));
     
@@ -42,7 +46,7 @@ export default function BookCategories(){
 
 
 
-        {
+        {/* {
             data ? (
                 // JSON.stringify(data)
                     // JSON.stringify(libraryCategories)
@@ -63,8 +67,19 @@ export default function BookCategories(){
             ) : 
                 <p></p>
 
-        }
+        } */}
+        { products ? 
+         ( list_of_categories.map((singleData, i) => {
 
+            return(
+              <CategoriesCard datas={singleData} key={i} />
+
+            )
+          })) 
+          : 
+
+          <p>failed</p>
+        }
 
       </div>
     </div>
