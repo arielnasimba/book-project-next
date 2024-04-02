@@ -12,7 +12,7 @@ export default function MiniCardCategorie({datas}) {
 
   return (
     <div className={`categories-card w-[10.7rem] h-[3.7rem]  rounded-3xl border flex  p-3 justify-between items-center
-                    tablet:w-[14rem] tablet:h-[4.7rem] cursor-pointer border-black tablet:p-4
+                    tablet:w-[14rem] tablet:h-[4.7rem] cursor-pointer border-black tablet:p-4 desktopL:w-[16rem]
     ` }>
 
         {/* <p className='m-auto'> card template</p> */}

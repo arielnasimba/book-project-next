@@ -70,7 +70,8 @@ export default function   Navbar() {
                                                 `}
           />
         </li>
-        <li
+        <Link
+        href={`/favorites-page`}
           className={`w-[6%] h-full  flex hover:cursor-pointer
                             tablet:w-[4%] 
                             desktopM:w-[3%] desktopM:ml-8
@@ -79,8 +80,9 @@ export default function   Navbar() {
             `}
         >
           <BookmarkIcon className={`w-full text-black `} />{" "}
-        </li>
-        <li
+        </Link>
+        <Link
+        href={`/favorites-page`}
           className={`w-[6%] h-full  flex hover:cursor-pointer
                             tablet:w-[4%]   tablet:-ml-8 tablet:-mr-8 
                             desktopM:w-[3%] desktopM:-ml-20 desktopM:-mr-20
@@ -89,7 +91,7 @@ export default function   Navbar() {
             `}
         >
           <ShoppingBagIcon className={`w-full text-black`} />{" "}
-        </li>
+        </Link>
 
         <Link
           href={`/user-login`}

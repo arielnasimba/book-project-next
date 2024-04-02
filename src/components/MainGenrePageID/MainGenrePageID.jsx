@@ -6,7 +6,9 @@ import { fetchUserData } from "../../redux/slices/userSlice";
 import { addToCategories, addToContent } from "../../redux/slices/contentSlice";
 import BookCard from "../BookCard/BookCard";
 import { useParams } from "next/navigation";
-
+import Link from "next/link";
+import Image from "next/image";
+import btn_icon from "../../images-dir/btnIcon";
 
 export default function MainGenrePageID(){
   const params = useParams();
@@ -54,7 +56,20 @@ if (data != null) {
     <div
       className={`book-categories w-full h-[50rem]  flex flex-col gap-y-2 pt-2 p-7 `}
     >
-      <div className="title-area font-semibold text-[1.2rem] my-5">
+<Link
+    href={`/genre-page`}
+    className=" w-[1.2rem] h-[1.2rem] mt-[1.2rem]  "
+    >
+  
+    <button type="button ">
+
+      <Image 
+        alt={btn_icon[0].name}
+        src={btn_icon[0].src}
+      />
+    </button>
+    </Link>
+      <div className="title-area font-semibold text-[1.2rem] mt-[1rem] mb-5">
         <h2> {title}  Categories</h2>
       </div>
 

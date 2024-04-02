@@ -1,8 +1,12 @@
+import Link from "next/link";
 import Footer from "../../../components/Footer/Footer";
 import Maincomponent from "../../../components/MainComponent/Maincomponent";
 import MainGenrePageComponent from "../../../components/MainGenrePageComponent/MainGenrePageComponent";
 import MainGenrePageID from "../../../components/MainGenrePageID/MainGenrePageID";
 import Navbar from "../../../components/Navbar/Navbar";
+
+import btn_icon from "../../../images-dir/btnIcon";
+import Image from "next/image";
 
 export default function GenrePageUnique() {
 
