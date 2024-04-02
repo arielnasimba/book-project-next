@@ -28,59 +28,70 @@ const  BookCategories = async() => {
     
     // // Convertir l'ensemble en tableau
     // const list_of_categories = [...uniqueElements];
+  useEffect( async () => {
 
     const apiData = await getData();
-    return (
-        <div
-        className={`book-categories w-full h-[50rem]  flex flex-col gap-y-2 pt-2     `}
-        >
-      <div className="title-area font-semibold text-[1.2rem] mt-6 mb-4">
-        <h2> Book Categories</h2>
+    if (apiData != null) {
+      
+    
+      return (
+          <div
+          className={`book-categories w-full h-[50rem]  flex flex-col gap-y-2 pt-2     `}
+          >
+        <div className="title-area font-semibold text-[1.2rem] mt-6 mb-4">
+          <h2> Book Categories</h2>
+        </div>
+  
+        <div className="card-categories-area w-full h-[95%]  grid grid-cols-2 gap-x-6 gap-y-6  overflow-y-scroll pt-5
+                      tablet:grid-cols-3 tablet:gap-x-4  desktopM:grid-cols-4 desktopM:gap-x-2 desktopL:grid-cols-5 desktopxl:grid-cols-7
+        ">
+  
+  
+  
+          {/* {
+              data ? (
+                  // JSON.stringify(data)
+                      // JSON.stringify(libraryCategories)
+                      list_of_categories.map((singleData, i) =>{
+  
+                      return(
+  
+                          <div className="" key={i}
+                          
+                          >   
+                          <CategoriesCard datas={singleData} />
+  
+                          </div>
+                      )
+                  })
+  
+  
+              ) : 
+                  <p></p>
+  
+          } */}
+  
+          {
+            apiData.map((books, i) =>  {
+  
+              return(
+  
+                <CategoriesCard  key={books.id}/>
+              )
+            })
+          }
+  
+  
+        </div>
       </div>
-
-      <div className="card-categories-area w-full h-[95%]  grid grid-cols-2 gap-x-6 gap-y-6  overflow-y-scroll pt-5
-                    tablet:grid-cols-3 tablet:gap-x-4  desktopM:grid-cols-4 desktopM:gap-x-2 desktopL:grid-cols-5 desktopxl:grid-cols-7
-      ">
-
-
-
-        {/* {
-            data ? (
-                // JSON.stringify(data)
-                    // JSON.stringify(libraryCategories)
-                    list_of_categories.map((singleData, i) =>{
-
-                    return(
-
-                        <div className="" key={i}
-                        
-                        >   
-                        <CategoriesCard datas={singleData} />
-
-                        </div>
-                    )
-                })
-
-
-            ) : 
-                <p></p>
-
-        } */}
-
-        {
-          apiData.map((books, i) =>  {
-
-            return(
-
-              <CategoriesCard  key={books.id}/>
-            )
-          })
+    );
+  
         }
 
+  }, [])
+  
 
-      </div>
-    </div>
-  );
+ 
 }
 
 export default BookCategories;
