@@ -1,33 +1,35 @@
-"use client"
 import React, { useEffect } from "react";
 import CategoriesCard from "../CategoriesCard/CategoriesCard";
 import { fetchUserData } from "../../redux/slices/userSlice";
 import { addToCategories, addToContent } from "../../redux/slices/contentSlice";
 import MiniCardCategorie from "../MiniCardCategorie/MiniCardCategorie";
 import { useDispatch, useSelector } from "react-redux";
+import {getData} from "../../lib/getData"
 
 
-export default function BookCategories(){
+const  BookCategories = async() => {
 
-    const dispatch = useDispatch();
-    const { data, loading, error} = useSelector((state) => state.user);
-    const libraryContent = useSelector((state) => state.library.content)
-    const libraryCategories = useSelector((state) => state.library.categories)
+    // const dispatch = useDispatch();
+    // const { data, loading, error} = useSelector((state) => state.user);
+    // const libraryContent = useSelector((state) => state.library.content)
+    // const libraryCategories = useSelector((state) => state.library.categories)
     
-    useEffect(() => {
-        dispatch(fetchUserData())
-    }, [dispatch])
-    if (loading) {
-        return <p>Loading...</p>;
-    }
-    if (error) {
-        return <p>Error</p>;
-    }
+    // useEffect(() => {
+    //     dispatch(fetchUserData())
+    // }, [dispatch])
+    // if (loading) {
+    //     return <p>Loading...</p>;
+    // }
+    // if (error) {
+    //     return <p>Error</p>;
+    // }
     
-    const uniqueElements = new Set(libraryCategories.flatMap(item => item.split(',')));
+    // const uniqueElements = new Set(libraryCategories.flatMap(item => item.split(',')));
     
-    // Convertir l'ensemble en tableau
-    const list_of_categories = [...uniqueElements];
+    // // Convertir l'ensemble en tableau
+    // const list_of_categories = [...uniqueElements];
+
+    const apiData = await getData();
     return (
         <div
         className={`book-categories w-full h-[50rem]  flex flex-col gap-y-2 pt-2     `}
@@ -42,7 +44,7 @@ export default function BookCategories(){
 
 
 
-        {
+        {/* {
             data ? (
                 // JSON.stringify(data)
                     // JSON.stringify(libraryCategories)
@@ -63,6 +65,16 @@ export default function BookCategories(){
             ) : 
                 <p></p>
 
+        } */}
+
+        {
+          apiData.map((books, i) =>  {
+
+            return(
+
+              <CategoriesCard  key={books.id}/>
+            )
+          })
         }
 
 
@@ -71,3 +83,4 @@ export default function BookCategories(){
   );
 }
 
+export default BookCategories;

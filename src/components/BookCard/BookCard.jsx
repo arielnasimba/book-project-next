@@ -1,10 +1,24 @@
+"use client"
 import Image from 'next/image'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { HeartIcon } from "@heroicons/react/24/outline";
 import { ShoppingBagIcon } from "@heroicons/react/24/outline";
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchUserData } from '../../redux/slices/userSlice';
 
 
-export default function BookCard() {
+export default function BookCard(props) {
+    const dispatch = useDispatch();
+
+    // const library = useSelector((state) => state.library.content);
+    const { data, loading, error} = useSelector((state) => state.user);
+        useEffect(() => {
+      dispatch(fetchUserData())
+      
+    }, [dispatch])
+
+    const title = props.datas.id == props.key;
+    
   return (
     <div className={`w-[10.2rem] h-[15rem]  mx-auto bg-[rgba(221,221,221,0.4)] border-white border flex flex-col rounded-3xl relative`}>
 
@@ -24,8 +38,8 @@ export default function BookCard() {
         <div className="title-area mx-auto text-center">
              <h2>
                 {/* {props.title} */}
-
-
+    {/* {props.datas.id} */}
+    {title.title}
              </h2>
         </div>
     

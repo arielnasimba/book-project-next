@@ -54,11 +54,11 @@ if (data != null) {
     <div
       className={`book-categories w-full h-[50rem]  flex flex-col gap-y-2 pt-2 p-7 `}
     >
-      <div className="title-area font-semibold text-[1.2rem]">
+      <div className="title-area font-semibold text-[1.2rem] my-5">
         <h2> {title}  Categories</h2>
       </div>
 
-      <div className="card-categories-area w-full h-[95%]  grid grid-cols-2 gap-x-6 gap-y-6
+      <div className="card-categories-area w-full h-[95%]  grid grid-cols-2 gap-x-6 gap-y-6 overflow-y-scroll
                     tablet:grid-cols-3
       ">
 
@@ -70,12 +70,12 @@ if (data != null) {
               
                     return(
 
-                        <div className="" key={i}
+                        <div className="" 
                         
                         >   
-                        {/* <BookCard  datas={singleData} /> */}
+                        <BookCard  datas={singleData} key={singleData.id} />
 
-                      <p>{singleData.id} </p>
+                      {/* <p>{singleData.id} </p> */}
                         </div>
                     )
                 })
