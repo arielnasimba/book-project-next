@@ -70,7 +70,7 @@ if (data != null) {
               
                     return(
 
-                        <div className="" 
+                        <div className="" key={i}
                         
                         >   
                         <BookCard  datas={singleData} key={singleData.id} />
