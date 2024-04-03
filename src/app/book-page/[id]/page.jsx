@@ -1,19 +1,23 @@
 "use client"
-import Link from "next/link";
-import Footer from "../../../components/Footer/Footer";
-import Maincomponent from "../../../components/MainComponent/Maincomponent";
-import MainGenrePageComponent from "../../../components/MainGenrePageComponent/MainGenrePageComponent";
-import MainGenrePageID from "../../../components/MainGenrePageID/MainGenrePageID";
-import Navbar from "../../../components/Navbar/Navbar";
-
-import btn_icon from "../../../images-dir/btnIcon";
-import Image from "next/image";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchUserData } from "../../../redux/slices/userSlice";
+import Footer from "../../../components/Footer/Footer"
+import Login from "../../../components/Login/Login";
+import Maincomponent from "../../../components/MainComponent/Maincomponent";
+import Navbar from "../../../components/Navbar/Navbar";
+import Image from "next/image";
 import { useEffect } from "react";
+import BookProductMain from "../../../components/BookProductMain/BookProductMain";
+import { fetchUserData } from "../../../redux/slices/userSlice";
 import { addToCategories, addToContent } from "../../../redux/slices/contentSlice";
+// import { fetchUserData } from "../redux/slices/userSlice";
+// import { addToCategories, addToContent } from "../redux/slices/contentSlice";
 
-export default function GenrePageUnique() {
+
+
+export default function BookPageID() {
+
+
+  // const products = await getProduct()
   const dispatch = useDispatch();
   const { data, loading, error} = useSelector((state) => state.user);
 
@@ -26,6 +30,7 @@ export default function GenrePageUnique() {
   dispatch(addToContent(data))
   dispatch(addToCategories(data))
 
+
   return (
     <main className="w-[100dvw] h-[250dvh] flex flex-col ">
 
@@ -37,12 +42,12 @@ export default function GenrePageUnique() {
 
       <div className="main-area">
 
-        <MainGenrePageID />
+        <BookProductMain />
+
       </div>
 
-
-
       <Footer/>
+
     </main>
   );
 }

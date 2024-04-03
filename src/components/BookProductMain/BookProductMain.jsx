@@ -1,0 +1,195 @@
+import React, { useEffect, useState } from 'react'
+import btn_icon from '../../images-dir/btnIcon'
+import Link from 'next/link'
+import Image from 'next/image'
+import { BookmarkIcon } from '@heroicons/react/24/outline'
+import { useParams } from 'next/navigation'
+import { useDispatch, useSelector } from 'react-redux'
+import { addToCartAdmin, addToCartAllAdmin, addToFavsAdmin, removeFromFavsAdmin } from '../../redux/slices/usersManagementSlice'
+
+export default function BookProductMain() {
+
+    
+    const params = useParams();
+    const dispatch = useDispatch();
+
+    const [bookToCart, setbookToCart] = useState()
+
+    const foundedBook = () => {
+
+    }
+    const handleAddToCart = (book) => {
+        dispatch(addToCartAdmin(book))
+    }
+
+    const title = params.id.replace(/[^a-zA-Z ]/g, ' ')
+    const titleToSearched = title.replace(/[^a-zA-Z ]/g, '').toLowerCase().trim().replaceAll(/\s+/g, '')
+
+    const libraryContent = useSelector( ( state) => state.library.content)
+
+    // if (libraryContent) {
+    //     filteredBooks = libraryContent.filter(book => {
+    //       const genres = book.genre_list.split(",");
+    //       return genres.includes(params.id.trim());
+    //     });
+    //   }
+    // const [foundBook, setFoundBook] = useState(null);
+    // let authorsBook = null;
+    // useEffect(() => {
+    
+        
+    //     if (libraryContent) {
+    //         libraryContent.map((el) => {
+    //             if (el.title.toLowerCase().trim().replaceAll(/\s+/g, '') == titleToSearched) {
+    //                 authorsBook = el.authors
+    //             }
+    //         })
+    //     }
+
+    // }, [authorsBook])
+
+
+
+    // useEffect(() => {
+    //     if (libraryContent) {
+
+
+
+    //         const book = libraryContent.find((item) =>
+    //             item.title.toLowerCase().trim().replaceAll(/\s+/g, '').includes(titleToSearched)
+    //         );
+    //         if (book) {
+    //             setFoundBook(book);
+    //         }
+    //     }
+    // }, [libraryContent, titleToSearched]);
+
+    const [foundBook, setFoundBook] = useState(null);
+
+    useEffect(() => {
+        if (libraryContent) {
+            libraryContent.map((el) => {
+                if (el.title.toLowerCase().trim().replaceAll(/\s+/g, '') == titleToSearched) {
+                    setFoundBook(el);
+                }
+            })
+            // const book = libraryContent.find((item) =>
+            //     item.title.toLowerCase().trim().replaceAll(/\s+/g, '').includes(titleToSearched)
+            // );
+            // setFoundBook(book);
+        }
+    }, [libraryContent, foundBook]);
+
+    const [isAddedToFavs, setIsAddedToFavs] = useState(false);
+
+    const handleAddToFavs = (book) => {
+      
+     if (!isAddedToFavs) {
+        dispatch(addToFavsAdmin(book))
+        setIsAddedToFavs(true)
+      } else if (isAddedToFavs) {
+        dispatch(removeFromFavsAdmin(book))
+        setIsAddedToFavs(false)
+      }
+  
+    }
+  return (
+    <div className={`book-product-main w-full h-[90dvh]  my-5 px-7 flex flex-col  gap-y-2
+         
+    `}>
+ <div className="top-area w-full h-[2rem] flex justify-between mt-[0.45rem] ">
+ <Link
+    href={`/genre-page`}
+    className=" w-[1.18rem] h-[1.18rem]   "
+    >
+  
+    <button type="button ">
+
+      <Image
+        alt={btn_icon[0].name}
+        src={btn_icon[0].src}
+      />
+    </button>
+    </Link>
+
+    {
+        isAddedToFavs ?
+        (
+            <svg onClick={() => handleAddToFavs(foundBook)}   xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 active:scale-75 duration-200">
+            <path fillRule="evenodd" d="M6.32 2.577a49.255 49.255 0 0 1 11.36 0c1.497.174 2.57 1.46 2.57 2.93V21a.75.75 0 0 1-1.085.67L12 18.089l-7.165 3.583A.75.75 0 0 1 3.75 21V5.507c0-1.47 1.073-2.756 2.57-2.93Z" clipRule="evenodd" />
+          </svg>
+
+        )
+        :
+        (
+
+            <BookmarkIcon 
+            onClick={() => handleAddToFavs(foundBook)}
+            className='w-[1.5rem] h-[1.5rem] active:scale-75 duration-200  ' />
+        )
+
+    }
+
+
+ </div>
+
+ <div className="title-area text-2xl font-semibold">
+    <h1> {title} </h1>
+    
+ </div>
+ <div className="authors-area text-sm font-thin">
+    <h2> 
+
+
+    </h2>
+    
+ </div>
+
+ <div className="image-book-area w-auto h-auto mx-auto bg-blue-400 rounded-2xl mt-2">
+
+    {
+        foundBook ?  (
+
+            <img
+                alt={`hello`}
+                src={foundBook.image_url}
+                className='rounded-2xl'
+            />
+        ) : 
+
+        ( <p>loading</p> )
+    }
+
+
+ </div>
+
+ <div className="detail-area w-full h-[8rem]  flex flex-col  text-gray-400  text-sm gap-2 ">
+    <h4>Details:</h4>
+
+    <div className="bot w-full h-[80%] overflow-y-scroll">
+        {
+            foundBook ? 
+            (
+               <p>{foundBook.description} </p>  
+            )
+            :
+            (
+                <p>nothing</p>
+            )
+        }
+        
+    
+    </div>
+
+ </div>
+
+    <div className="ratings-area flex flex-col mt-2">
+        <h5 className='text-gray-400  text-sm'>Rating</h5>
+        <span>{ foundBook && foundBook.rating} </span>
+    </div>
+
+    <button onClick={() => {handleAddToCart(foundBook), dispatch(addToCartAllAdmin(foundBook))}} type="button" className='w-full h-[3rem] rounded-3xl bg-black text-white active:scale-75 duration-500'>Add to cart</button>
+
+    </div>
+  )
+}

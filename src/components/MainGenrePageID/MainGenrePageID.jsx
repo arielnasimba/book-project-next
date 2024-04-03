@@ -17,22 +17,6 @@ export default function MainGenrePageID(){
     const libraryContent = useSelector((state) => state.library.content)
     const libraryCategories = useSelector((state) => state.library.categories)
 
-    // useEffect(() => {
-    //   dispatch(fetchUserData())
-      
-    // }, [dispatch])
-
-    
-    // useEffect(() => {
-    //     dispatch(addToContent(data))
-
-    // }, [])
-    // if (loading) {
-    //     return <p>Loading ...</p>
-    // }
-    // if (error) {
-    //     return <p>Error failed to </p>
-    // }
 
 
 
@@ -46,10 +30,39 @@ const list_of_categories = [...uniqueElements];
 const title = params.id.replace(/[^a-zA-Z ]/g, ' ')
     
 let filteredBooks = null;
-if (data != null) {
-  filteredBooks = data.filter(book => {
+// if (data != null) {
+//   filteredBooks = data.filter(book => {
+//     const genres = book.genre_list.split(",");
+//     return genres.includes(title);
+//   });
+// }
+
+// let arrayCategories = [];
+
+// function arraySortedByTitle(array, arraySorted) {
+
+//   if (array) {
+    
+//     array.forEach(element => {
+//       const elementGenreList = element.genre_list;
+//         const element_genre_list_set =  new Set(elementGenreList.flatMap(item => item.split(',')))
+//         element_genre_list_set.forEach(elementGenre => {
+//             if (elementGenre == params.id.trim()) {
+//               arrayCategories.push(element);
+//             }
+//         })
+//     });
+
+//     arraySorted = array
+//   }
+  
+// }
+
+if (libraryContent) {
+  filteredBooks = libraryContent.filter(book => {
     const genres = book.genre_list.split(",");
-    return genres.includes(title);
+    return genres.includes(params.id.trim());
+    
   });
 }
   return (
@@ -73,12 +86,30 @@ if (data != null) {
         <h2> {title}  Categories</h2>
       </div>
 
-      <div className="card-categories-area w-full h-[95%]  grid grid-cols-2 gap-x-2 gap-y-6 overflow-y-scroll
+      <div className="card-categories-area w-full h-[95%]  grid grid-cols-2 gap-x-2 gap-y-3 overflow-y-scroll
                     tablet:grid-cols-3
       ">
 
-      <BookCard />
-      <BookCard />
+      {/* <BookCard /> */}
+
+{
+  libraryContent ? 
+  
+  (
+
+    filteredBooks.map((book, i) => {
+
+
+      return(
+        <BookCard key={book.id} dataBook={book} />
+      )
+    })
+  )
+  :
+  (
+    <p>hello</p>
+  )
+}      
 
 
 

@@ -1,4 +1,4 @@
-
+"use client"
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -7,8 +7,12 @@ import { BookmarkIcon } from "@heroicons/react/24/outline";
 import { ShoppingBagIcon } from "@heroicons/react/24/outline";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import { Bars3CenterLeftIcon } from "@heroicons/react/24/outline";
+import { useSelector } from "react-redux";
 
 export default function   Navbar() {
+  const dataAdminBag = useSelector((state) => state.usersManagement.admin.allBasket)
+  const dataAdminFavs = useSelector((state) => state.usersManagement.admin.favorites)
+  console.log(dataAdminBag);
   return (
     <nav
       className={`w-full h-full  flex  bg-[rgba(221,221,221,0.1)] border-[rgba(0,0,0,0.2)] border-b rounded-b-3xl `}
@@ -79,7 +83,11 @@ export default function   Navbar() {
                             desktopxl:w-[1.5%] desktopxl:ml-24
             `}
         >
-          <BookmarkIcon className={`w-full text-black `} />{" "}
+          <BookmarkIcon className={`w-full text-black `} />
+          <div className="circle-bag w-[1.3rem] h-[1.3rem] border-black border-[0.1rem] absolute top-[1.15rem] right-[11.6rem] rounded-full flex ">
+    <span className="m-auto text-[0.8rem]">{dataAdminFavs.length} </span>
+          </div>
+          
         </Link>
         <Link
         href={`/cart-page`}
@@ -91,6 +99,11 @@ export default function   Navbar() {
             `}
         >
           <ShoppingBagIcon className={`w-full text-black`} />{" "}
+          <div className="circle-bag w-[1.3rem] h-[1.3rem] border-black border-[0.1rem] absolute top-[1.15rem] right-[9.1rem] rounded-full flex ">
+    <span className="m-auto text-[0.8rem]">{dataAdminBag.length} </span>
+
+          </div>
+
         </Link>
 
         <Link
