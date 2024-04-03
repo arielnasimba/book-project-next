@@ -73,7 +73,7 @@ if (data != null) {
         <h2> {title}  Categories</h2>
       </div>
 
-      <div className="card-categories-area w-full h-[95%]  grid grid-cols-2 gap-x-6 gap-y-6 overflow-y-scroll
+      <div className="card-categories-area w-full h-[95%]  grid grid-cols-2 gap-x-2 gap-y-6 overflow-y-scroll
                     tablet:grid-cols-3
       ">
 

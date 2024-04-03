@@ -1,5 +1,5 @@
 import React from 'react'
-import { HeartIcon } from '@heroicons/react/24/solid';
+import { HeartIcon, InformationCircleIcon } from '@heroicons/react/24/solid';
 import { ArchiveBoxXMarkIcon } from '@heroicons/react/24/solid';
 import { XMarkIcon } from '@heroicons/react/24/outline';
 

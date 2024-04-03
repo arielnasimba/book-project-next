@@ -28,6 +28,7 @@ export default function MiniCardCategorie({datas}) {
 
 
         <h5 className='text-[1rem] m-auto'>{datas} </h5>
+        
         </div>
 
         
