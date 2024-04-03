@@ -10,13 +10,13 @@ import Link from "next/link";
 import btn_icon from "../../images-dir/btnIcon"
 import Image from "next/image";
 
-export default function MainGenrePageComponent({products}) {
+export default function MainGenrePageComponent() {
     const dispatch = useDispatch();
-      useEffect(() => {
-        dispatch(addToContent(products))
-        dispatch(addToCategories(products))
+      // useEffect(() => {
+      //   dispatch(addToContent(products))
+      //   dispatch(addToCategories(products))
       
-      }, [])
+      // }, [])
       
     
     const { data, loading, error} = useSelector((state) => state.user);    

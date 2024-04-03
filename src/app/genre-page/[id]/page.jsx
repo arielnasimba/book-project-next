@@ -21,14 +21,10 @@ export default function GenrePageUnique() {
 
       <div className="main-area">
 
-        {/* <MainGenrePageComponent /> */}
         <MainGenrePageID />
       </div>
 
-      <div className="footer-area">
 
-
-      </div>
 
       <Footer/>
     </main>

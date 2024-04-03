@@ -1,4 +1,4 @@
-"use client"
+// "use client"
 import React, { useEffect } from "react";
 import CategoriesCard from "../CategoriesCard/CategoriesCard";
 import { fetchUserData } from "../../redux/slices/userSlice";

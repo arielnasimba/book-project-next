@@ -1,4 +1,4 @@
-"use client"
+// "use client"
 import React, { useEffect } from "react";
 import CategoriesCard from "../CategoriesCard/CategoriesCard";
 import { fetchUserData } from "../../redux/slices/userSlice";
@@ -17,7 +17,6 @@ export default function CategoriesArea(){
     const { data, loading, error} = useSelector((state) => state.user);
     const libraryContent = useSelector((state) => state.library.content)
     const libraryCategories = useSelector((state) => state.library.categories)
-
 const uniqueElements = new Set(libraryCategories.flatMap(item => item.split(',')));
 
 // Convertir l'ensemble en tableau
@@ -45,8 +44,9 @@ const list_of_categories = [...uniqueElements];
         <CategoriesCard /> */}
 
 
+
         {
-            libraryCategories ? (
+            libraryCategories  ? (
                 // JSON.stringify(data)
                     // JSON.stringify(libraryCategories)
                     list_of_categories.map((singleData, i) =>{

@@ -77,29 +77,9 @@ if (data != null) {
                     tablet:grid-cols-3
       ">
 
-        {
-            data ? (
-                // JSON.stringify(data)
-                    // JSON.stringify(libraryCategories)
-                    data.map((singleData,i) =>{
-              
-                    return(
+      <BookCard />
+      <BookCard />
 
-                        <div className="" key={i}
-                        
-                        >   
-                        <BookCard  datas={singleData} key={singleData.id} />
-
-                      {/* <p>{singleData.id} </p> */}
-                        </div>
-                    )
-                })
-
-
-            ) : 
-                <p></p>
-
-        }
 
 
       </div>
@@ -108,3 +88,26 @@ if (data != null) {
 }
 
 
+// {
+//   data ? (
+//       // JSON.stringify(data)
+//           // JSON.stringify(libraryCategories)
+//           data.map((singleData,i) =>{
+    
+//           return(
+
+//               <div className="" key={i}
+              
+//               >   
+//               <BookCard  datas={singleData} key={singleData.id} />
+
+//             {/* <p>{singleData.id} </p> */}
+//               </div>
+//           )
+//       })
+
+
+//   ) : 
+//       <p>hello nothing</p>
+
+// }

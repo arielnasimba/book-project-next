@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 // Define the async thunk for fetching user data
 export const fetchUserData = createAsyncThunk('user/fetchUserData', async () => {
-  const response = await fetch('https:/example-data.draftbit.com/books');
+  const response = await fetch('https://example-data.draftbit.com/books');
   const jsonData = await response.json();
   return jsonData;
 });
