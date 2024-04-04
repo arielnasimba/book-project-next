@@ -62,8 +62,12 @@ if (libraryContent) {
   filteredBooks = libraryContent.filter(book => {
     const genres = book.genre_list.split(",");
     return genres.includes(params.id.trim());
-    
+
   });
+}
+
+function onLinkClick(e) {
+  e.preventDefault()
 }
   return (
     <div
@@ -72,6 +76,7 @@ if (libraryContent) {
 <Link
     href={`/genre-page`}
     className=" w-[1.2rem] h-[1.2rem] mt-[1.2rem]  "
+    onClick={onLinkClick}
     >
   
     <button type="button ">
