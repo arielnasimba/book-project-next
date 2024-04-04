@@ -94,7 +94,7 @@ export default function BookProductMain() {
   
     }
   return (
-    <div className={`book-product-main w-full h-[90dvh]  my-5 px-7 flex flex-col  gap-y-2
+    <div className={`book-product-main w-full h-[90dvh]  my-5 px-7 flex flex-col  gap-y-2 desktopM:flex desktopM:flex-row
          
     `}>
  <div className="top-area w-full h-[2rem] flex justify-between mt-[0.45rem] ">
@@ -133,7 +133,7 @@ export default function BookProductMain() {
 
  </div>
 
- <div className="title-area text-2xl font-semibold">
+ <div className="title-area text-2xl font-semibold tablet:ml-7 desktopM:ml-10 desktopL:ml-16 ">
     <h1> {title} </h1>
     
  </div>
@@ -163,10 +163,10 @@ export default function BookProductMain() {
 
  </div>
 
- <div className="detail-area w-full h-[8rem]  flex flex-col  text-gray-400  text-sm gap-2 ">
+ <div className="detail-area w-full min-h-[8rem]  flex flex-col  text-gray-400  text-sm gap-2 ">
     <h4>Details:</h4>
 
-    <div className="bot w-full h-[80%] overflow-y-scroll">
+    <div className="bot w-full min-h-[80%] ">
         {
             foundBook ? 
             (
@@ -188,7 +188,9 @@ export default function BookProductMain() {
         <span>{ foundBook && foundBook.rating} </span>
     </div>
 
-    <button onClick={() => {handleAddToCart(foundBook), dispatch(addToCartAllAdmin(foundBook))}} type="button" className='w-full h-[3rem] rounded-3xl bg-black text-white active:scale-75 duration-500'>Add to cart</button>
+    <button onClick={() => {handleAddToCart(foundBook), dispatch(addToCartAllAdmin(foundBook))}} type="button" className='w-full h-[3rem] rounded-3xl bg-black text-white active:scale-75 duration-500
+            tablet:mx-auto tablet:w-[50%] desktopM:w-[30%] desktopL:w-[20%] 
+    '>Add to cart</button>
 
     </div>
   )

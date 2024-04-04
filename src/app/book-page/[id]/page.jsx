@@ -46,7 +46,7 @@ export default function BookPageID() {
 
       </div>
 
-      <Footer/>
+      {/* <Footer/> */}
 
     </main>
   );

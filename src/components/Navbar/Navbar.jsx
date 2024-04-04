@@ -12,7 +12,6 @@ import { useSelector } from "react-redux";
 export default function   Navbar() {
   const dataAdminBag = useSelector((state) => state.usersManagement.admin.allBasket)
   const dataAdminFavs = useSelector((state) => state.usersManagement.admin.favorites)
-  console.log(dataAdminBag);
   return (
     <nav
       className={`w-full h-full  flex  bg-[rgba(221,221,221,0.1)] border-[rgba(0,0,0,0.2)] border-b rounded-b-3xl `}
@@ -84,7 +83,9 @@ export default function   Navbar() {
             `}
         >
           <BookmarkIcon className={`w-full text-black `} />
-          <div className="circle-bag w-[1.3rem] h-[1.3rem] border-black border-[0.1rem] absolute top-[1.15rem] right-[11.6rem] rounded-full flex ">
+          <div className="circle-bag w-[1.3rem] h-[1.3rem] border-black border-[0.1rem] absolute top-[1.15rem] right-[11.6rem] rounded-full flex 
+                    tablet:right-[12.4rem] tablet:top-[1.22rem] desktopM:right-[12.5rem] desktopM:top-[1.22rem] desktopL:right-[14rem] desktopxl:right-[23.5rem]
+          ">
     <span className="m-auto text-[0.8rem]">{dataAdminFavs.length} </span>
           </div>
           
@@ -99,7 +100,9 @@ export default function   Navbar() {
             `}
         >
           <ShoppingBagIcon className={`w-full text-black`} />{" "}
-          <div className="circle-bag w-[1.3rem] h-[1.3rem] border-black border-[0.1rem] absolute top-[1.15rem] right-[9.1rem] rounded-full flex ">
+          <div className="circle-bag w-[1.3rem] h-[1.3rem] border-black border-[0.1rem] absolute top-[1.15rem] right-[9.1rem] rounded-full flex 
+                          tablet:right-[9.2rem] tablet:top-[1.22rem] desktopM:right-[9.9rem] desktopL:right-[11.2rem] desktopxl:right-[17.4rem]
+          ">
     <span className="m-auto text-[0.8rem]">{dataAdminBag.length} </span>
 
           </div>

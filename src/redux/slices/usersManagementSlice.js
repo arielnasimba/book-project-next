@@ -99,18 +99,34 @@ const usersManagementSlice = createSlice( {
          * @param {*} action : game received
          */
         addToCartAdmin:( state, action) => { 
-          const { id, title,  qty } = action.payload;
+          const { id, title, rating, image_url, qty } = action.payload;
+          const price = (rating * 2.4)
           const existingItem = state.admin.basket.find((item) => item.id === id);
           if (existingItem) {
             existingItem.qty += 1;
           } else {
-            state.admin.basket.push({ id, title,  qty:1 });
+            state.admin.basket.push({ id, title,rating, price, image_url,  qty:1 });
           }
         }, 
         addToCartAllAdmin:( state, action) => { 
             const item = action.payload;
             state.admin.allBasket.push(item);
         }, 
+        incrementQtyAdmin:(state, action)=> {
+            const cartId= action.payload;
+            const existingItem = state.admin.basket.find((item) => item.id ===cartId);
+            if (existingItem) {
+              existingItem.qty += 1;
+            }
+      
+          },
+          decrementQtyAdmin:(state, action)=> {
+            const cartId = action.payload;
+            const existingItem = state.admin.basket.find((item) => item.id ===cartId);
+            if (existingItem ) {
+              existingItem.qty -= 1;
+            } 
+          },
 
         //TODO : function not finished 
         //remove from cart admin
@@ -252,7 +268,7 @@ const usersManagementSlice = createSlice( {
     }
 })
 
-export const { checkAdminName, checkAdminPwd, checkAdminMail, addToFavsAdmin, removeFromFavsAdmin, addToCartAdmin, removeFromCartAdmin,addToCartAllAdmin,
+export const { checkAdminName, checkAdminPwd, checkAdminMail, addToFavsAdmin, removeFromFavsAdmin, addToCartAdmin, removeFromCartAdmin,addToCartAllAdmin, incrementQtyAdmin, decrementQtyAdmin,
                 checkNewUserName, checkNewUserPwd, checkNewUserMail, addFavsNewUSer, removeFavsNewUSer, addToCartNewUSer, removeFromCartNewUser,
                     addToDatabaseUsers} = usersManagementSlice.actions;
 

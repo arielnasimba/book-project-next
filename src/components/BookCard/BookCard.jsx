@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
-import { HeartIcon } from "@heroicons/react/24/outline";
+import { BookmarkIcon, HeartIcon } from "@heroicons/react/24/solid";
 import { StarIcon } from "@heroicons/react/24/outline";
 import { ShoppingBagIcon } from "@heroicons/react/24/outline";
 import { useDispatch, useSelector } from "react-redux";
@@ -40,6 +40,7 @@ export default function BookCard(props) {
   const handleAddBag = (book) => {
 
     dispatch(addToCartAdmin(book))
+    dispatch(addToCartAllAdmin(props.dataBook))
     console.log(`you add ${book.title} ` );
   }
   return (
@@ -51,47 +52,41 @@ export default function BookCard(props) {
         className={`image-area w-full h-[62%] flex rounded-3xl bg-cover bg-no-repeat cursor-pointer `} 
       
       style={{backgroundImage:`url(${props.dataBook.image_url})`}}>
-        {/* <Image alt={``} src={`https://images.gr-assets.com/books/1442530605l/5996153.jpg`} 
-          className="object-fill"
-          width={"50"}
-          height={"50"}
-        /> */}
 
-        {/* <img src="https://images.gr-assets.com/books/1442530605l/5996153.jpg" alt="" srcset="" className="w-auto" /> */}
       </Link>
 
 
         {
           isAddedToFavs ? 
           (
-            <svg onClick={() => handleAddToFavs(props.dataBook)}  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 text-red-400 absolute top-4  right-3 active:scale-75 duration-200 cursor-pointer">
+            <svg onClick={() => handleAddToFavs(props.dataBook)}  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-8 h-8 text-red-400 absolute top-4  right-1 active:scale-75 duration-200 cursor-pointer">
             <path d="m11.645 20.91-.007-.003-.022-.012a15.247 15.247 0 0 1-.383-.218 25.18 25.18 0 0 1-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0 1 12 5.052 5.5 5.5 0 0 1 16.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 0 1-4.244 3.17 15.247 15.247 0 0 1-.383.219l-.022.012-.007.004-.003.001a.752.752 0 0 1-.704 0l-.003-.001Z" />
           </svg>
           )
           :
-          ( <HeartIcon
+          ( <BookmarkIcon
             onClick={() => handleAddToFavs(props.dataBook)}
-            className={`absolute top-4 w-[1.5rem] right-3 active:scale-75 duration-200 cursor-pointer text-white  `}  />)
+            className={`absolute top-4 w-[1.7rem] right-1 active:scale-75 duration-200 cursor-pointer    `}  />)
         }
 
 
 
-      <div className="text-area w-full h-[38%]  rounded-b-3xl flex flex-col p-2 justify-evenly ">
-        <div className="title-area  text- ">
-          <h2>
+      <div className="text-area w-full h-[38%]  rounded-b-3xl flex flex-col p-2 justify-between  ">
+        <div className="title-area  text-   w-full h-[60%] flex flex-col justify-between   ">
+          <h2 className=" text-sm">
             {props.dataBook.title}
           </h2>
 
-          <p className="text-sm"> 
+          <p className="text-xs  "> 
           {props.dataBook.authors}
           </p>
         </div>
 
 
-        <div className="w-full h-[2rem] flex justify-between  ">
+        <div className="w-full h-[30%] flex justify-between  ">
           <button
             type="button"
-            onClick={() =>{handleAddBag(props.dataBook), dispatch(addToCartAllAdmin(props.dataBook)) }}
+            onClick={() =>{handleAddBag(props.dataBook) }}
             className={`w-[3rem] h-[2rem]  rounded-xl bg-[rgba(221,221,221,0.4)] border-white border flex justify-between active:scale-75 duration-200`}
           >
             <ShoppingBagIcon className="w-[1.2rem] m-auto " />
@@ -115,7 +110,7 @@ export default function BookCard(props) {
         href={`/book-page/${props.dataBook.title}`}
         >
         
-        <InformationCircleIcon className='w-[1.5rem] h-[1.5rem] absolute right-6 bottom-20 cursor-pointer active:scale-75 duration-200' />
+        <InformationCircleIcon className='w-[1.5rem] h-[1.5rem] absolute right-3 bottom-16 cursor-pointer active:scale-75 duration-200' />
         </Link>
 
       </div>
