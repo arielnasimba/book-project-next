@@ -42,7 +42,7 @@ export default function SearchArea() {
                 name="search"
                 id="search"
                 value={searchTerm}
-                onChange={handleSearch}
+                onChange={(e) => handleSearch(e)}
                 placeholder="Search book"
             />
             <div className="cards-area w-full h-[95%] grid grid-cols-2 gap-x-6 gap-y-6 tablet:grid-cols-3 tablet:gap-x-5 desktopM:gap-x-3 desktopM:grid-cols-4 desktopL:grid-cols-5 desktopxl:grid-cols-6">

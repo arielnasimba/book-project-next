@@ -93,7 +93,7 @@ function onLinkClick(e) {
       </div>
 
       <div className="card-categories-area w-full h-[95%]  grid grid-cols-2 gap-x-2 gap-y-3 overflow-y-scroll
-                    tablet:grid-cols-3
+                    tablet:grid-cols-3 desktopM:grid-cols-4 desktopL:grid-cols-5 desktopxl:grid-cols-7
       ">
 
       {/* <BookCard /> */}

@@ -23,7 +23,7 @@ export default function FavoriesArea() {
           <h1>Favorites Books</h1>
         </div>
 
-        <div className="favorites-card-area w-full h-[92%] flex flex-col gap-5    overflow-y-scroll ">
+        <div className="favorites-card-area w-full h-[92%] flex flex-col gap-5 tablet: tablet: tablet:gap-x-2 tablet:gap-y-1  tablet:flex-row flex-wrap   overflow-y-scroll ">
                 
 
       {/* <FavoriesCard /> */}

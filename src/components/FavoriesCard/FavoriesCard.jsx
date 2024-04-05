@@ -18,7 +18,7 @@ export default function FavoriesCard({data}) {
       }
   return (
     <div className={`favories-card w-[23rem] h-[8rem]  rounded-3xl border flex  p-5  items-center justify-between
-    tablet:w-[14rem] tablet:h-[4.7rem] cursor-pointer border-black tablet:p-4 desktopL:w-[16rem]
+    tablet:w-[22rem] tablet:h-[10rem] cursor-pointer border-black tablet:p-4 desktopL:w-[16rem]
 ` }>
 
 {/* <p className='m-auto'> card template</p> */}
