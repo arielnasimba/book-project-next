@@ -89,8 +89,11 @@ const usersManagementSlice = createSlice( {
          * @param {*} action : game received
          */
         removeFromFavsAdmin:( state, action) => { 
-            const indexToDelete = action.payload;
-            state.admin.favorites.splice(indexToDelete,1);
+            const {id} = action.payload; 
+            const indexToDelete = state.admin.favorites.findIndex(item => item.id === id);
+            if (indexToDelete !== -1) {
+                state.admin.favorites.splice(indexToDelete, 1)
+            }
         }, 
 
         /** add to cart admin

@@ -37,12 +37,17 @@ export default function Maincomponent() {
                         tablet:w-[50%] desktopM:w-[40%] desktopL:w-[26%] desktopxl:w-[19%]
       ">
         <button className="bg-black rounded-3xl " type="button">
+          <Link
+          href={`/search-page/`}
+          >
+          
           Search
+          </Link>
         </button>
 
         <button className="bg-black rounded-3xl" type="button">
             <Link 
-            href={`/genre-page`}
+            href={`/genre-page/`}
             >
             
             Genres

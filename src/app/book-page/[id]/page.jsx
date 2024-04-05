@@ -32,7 +32,7 @@ export default function BookPageID() {
 
 
   return (
-    <main className="w-[100dvw] h-[250dvh] flex flex-col ">
+    <main className="w-[100dvw] h-[130dvh] flex flex-col ">
 
       <div className={`navbar-area w-full h-[5rem]`}>
 

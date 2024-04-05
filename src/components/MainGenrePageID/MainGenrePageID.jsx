@@ -9,6 +9,7 @@ import { useParams } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import btn_icon from "../../images-dir/btnIcon";
+// import { Li} from "react-dom"
 
 export default function MainGenrePageID(){
   const params = useParams();
@@ -76,7 +77,7 @@ function onLinkClick(e) {
 <Link
     href={`/genre-page`}
     className=" w-[1.2rem] h-[1.2rem] mt-[1.2rem]  "
-    onClick={onLinkClick}
+    
     >
   
     <button type="button ">

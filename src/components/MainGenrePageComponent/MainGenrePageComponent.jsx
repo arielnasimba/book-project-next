@@ -9,6 +9,7 @@ import Link from "next/link";
 
 import btn_icon from "../../images-dir/btnIcon"
 import Image from "next/image";
+import { ArrowDownIcon, ChevronDoubleDownIcon, ChevronDownIcon } from "@heroicons/react/24/solid";
 
 export default function MainGenrePageComponent() {
     const dispatch = useDispatch();
@@ -40,6 +41,10 @@ export default function MainGenrePageComponent() {
       />
     </button>
     </Link>
+
+
+
+
 
       <div className="categories-books-area ">
 

@@ -27,42 +27,7 @@ export default function BookProductMain() {
 
     const libraryContent = useSelector( ( state) => state.library.content)
 
-    // if (libraryContent) {
-    //     filteredBooks = libraryContent.filter(book => {
-    //       const genres = book.genre_list.split(",");
-    //       return genres.includes(params.id.trim());
-    //     });
-    //   }
-    // const [foundBook, setFoundBook] = useState(null);
-    // let authorsBook = null;
-    // useEffect(() => {
-    
-        
-    //     if (libraryContent) {
-    //         libraryContent.map((el) => {
-    //             if (el.title.toLowerCase().trim().replaceAll(/\s+/g, '') == titleToSearched) {
-    //                 authorsBook = el.authors
-    //             }
-    //         })
-    //     }
-
-    // }, [authorsBook])
-
-
-
-    // useEffect(() => {
-    //     if (libraryContent) {
-
-
-
-    //         const book = libraryContent.find((item) =>
-    //             item.title.toLowerCase().trim().replaceAll(/\s+/g, '').includes(titleToSearched)
-    //         );
-    //         if (book) {
-    //             setFoundBook(book);
-    //         }
-    //     }
-    // }, [libraryContent, titleToSearched]);
+ 
 
     const [foundBook, setFoundBook] = useState(null);
 
@@ -94,7 +59,7 @@ export default function BookProductMain() {
   
     }
   return (
-    <div className={`book-product-main w-full h-[90dvh]  my-5 px-7 flex flex-col  gap-y-2 desktopM:flex desktopM:flex-row
+    <div className={`book-product-main w-full min-h-[90dvh]  my-5 px-7 flex flex-col  gap-y-2 
          
     `}>
  <div className="top-area w-full h-[2rem] flex justify-between mt-[0.45rem] ">
@@ -137,10 +102,12 @@ export default function BookProductMain() {
     <h1> {title} </h1>
     
  </div>
- <div className="authors-area text-sm font-thin">
-    <h2> 
+ <div className="authors-area text-sm font-thin flex items-center gap-x-3 tablet:ml-7  desktopM:ml-10 desktopL:ml-16">
 
-
+    <div className="round w-[1.7rem] h-[1.7rem]  rounded-full bg-blue-300 items-center flex justify-center"> A</div>
+    <h2 className='text-gray-500 font-thin'> 
+        {foundBook && foundBook.authors}
+    
     </h2>
     
  </div>
@@ -183,9 +150,45 @@ export default function BookProductMain() {
 
  </div>
 
-    <div className="ratings-area flex flex-col mt-2">
+    <div className="ratings-price-area flex  justify-between mt-2 ">
+
+        <div className="rating-area flex flex-col">
+
         <h5 className='text-gray-400  text-sm'>Rating</h5>
         <span>{ foundBook && foundBook.rating} </span>
+        </div>
+        <div className="price-area flex flex-col">
+
+        <h5 className='text-gray-400  text-sm'>Price</h5>
+        <span>{ foundBook && (foundBook.rating * 2.4).toFixed(2)}€ </span>
+        </div>
+    </div>
+    <div className="ratings-price-area flex  justify-between mt-2 ">
+
+        <div className="rating-area flex flex-col">
+
+        <h5 className='text-gray-400  text-sm'>Ratings</h5>
+        <span>{ foundBook && foundBook.rating_count} </span>
+        </div>
+        <div className="price-area flex flex-col">
+
+        <h5 className='text-gray-400  text-sm '>Reviews</h5>
+        <span className='text-end'>{ foundBook && (foundBook.review_count)}</span>
+        </div>
+    </div>
+
+    <div className="genres-area flex  justify-between my-2 ">
+
+        <div className="rating-area flex flex-col">
+
+        <h5 className='text-gray-400  text-sm'>Genres</h5>
+        <span className='text-xs'>{ foundBook && foundBook.genre_list} </span>
+        </div>
+        {/* <div className="price-area flex flex-col">
+
+        <h5 className='text-gray-400  text-sm'>Price</h5>
+        <span>{ foundBook && (foundBook.rating * 2.4).toFixed(2)}€ </span>
+        </div> */}
     </div>
 
     <button onClick={() => {handleAddToCart(foundBook), dispatch(addToCartAllAdmin(foundBook))}} type="button" className='w-full h-[3rem] rounded-3xl bg-black text-white active:scale-75 duration-500

@@ -23,7 +23,7 @@ export default function FavoriesArea() {
           <h1>Favorites Books</h1>
         </div>
 
-        <div className="favorites-card-area w-full h-[92%] grid grid-cols-1 gap-y-5 grid-flow-row  overflow-y-scroll ">
+        <div className="favorites-card-area w-full h-[92%] flex flex-col gap-5    overflow-y-scroll ">
                 
 
       {/* <FavoriesCard /> */}
@@ -39,7 +39,7 @@ export default function FavoriesArea() {
             )
             :
             (
-                <p>nothing</p>
+                <p>Empty</p>
             )
         }   
 

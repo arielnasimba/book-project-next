@@ -21,6 +21,7 @@ export default function   Navbar() {
             // onClick={() => displaySideBar()}
           className={`w-[8%] h-full  flex 
                     tablet:w-[5%]
+                    desktopM:hidden
                     desktopL:w-[4%] hover:cursor-pointer
                     desktopxl:w-[2.5%] 
             `}
@@ -48,11 +49,11 @@ export default function   Navbar() {
         <li
           className={`w-[6%] h-full  flex
                              
-                            tablet:w-[28%] tablet:h-[66%]  tablet:outline tablet:outline-1 tablet:bg-[rgba(221,221,221,0.4)]  tablet:outline-white
-                            tablet:rounded-3xl my-auto 
+                            tablet:w-[28%] tablet:h-[66%]  tablet: tablet: tablet:  tablet:
+                            tablet: my-auto 
             `}
         >
-          <input
+          {/* <input
             type="outline"
             name=""
             id="gameSearched"
@@ -63,18 +64,23 @@ export default function   Navbar() {
 
                                                         `}
             placeholder="Search a book... "
-          />
+          /> */}
+          <Link 
+          href={`/search-page/`}
+          >
+          
           <MagnifyingGlassIcon
-            className={`w-full text-black  
-                                                tablet:absolute  tablet:top-[1.9rem] tablet:w-[1.5rem] tablet:left-[27.3rem]
-                                                desktopM:left-[38.5rem]
-                                                desktopL:left-[55rem]
-                                                desktopxl:left-[71.5rem]
-                                                `}
-          />
+            className={` text-black absolute top-[1.9rem] w-[1.5rem]
+            tablet:absolute  tablet:top-[1.9rem] tablet:w-[1.5rem] tablet:left-[27.3rem]
+            desktopM:left-[38.5rem]
+            desktopL:left-[55rem]
+            desktopxl:left-[71.5rem]
+            `}
+            />
+          </Link>
         </li>
         <Link
-        href={`/favorites-page`}
+        href={`/favorites-page/`}
           className={`w-[6%] h-full  flex hover:cursor-pointer
                             tablet:w-[4%] 
                             desktopM:w-[3%] desktopM:ml-8
@@ -83,15 +89,15 @@ export default function   Navbar() {
             `}
         >
           <BookmarkIcon className={`w-full text-black `} />
-          <div className="circle-bag w-[1.3rem] h-[1.3rem] border-black border-[0.1rem] absolute top-[1.15rem] right-[11.6rem] rounded-full flex 
-                    tablet:right-[12.4rem] tablet:top-[1.22rem] desktopM:right-[12.5rem] desktopM:top-[1.22rem] desktopL:right-[14rem] desktopxl:right-[23.5rem]
+          <div className="circle-bag w-[1.3rem] h-[1.3rem] border-black border-[0.1rem] absolute top-[0.8rem] right-[11.5rem] rounded-full flex 
+                    tablet:right-[12.4rem] tablet:top-[0.8rem] desktopM:top-[0.8rem] desktopM:right-[12.5rem]  desktopL:right-[14rem] desktopxl:right-[23.5rem]
           ">
     <span className="m-auto text-[0.8rem]">{dataAdminFavs.length} </span>
           </div>
           
         </Link>
         <Link
-        href={`/cart-page`}
+        href={`/cart-page/`}
           className={`w-[6%] h-full  flex hover:cursor-pointer
                             tablet:w-[4%]   tablet:-ml-8 tablet:-mr-8 
                             desktopM:w-[3%] desktopM:-ml-20 desktopM:-mr-20
@@ -100,8 +106,8 @@ export default function   Navbar() {
             `}
         >
           <ShoppingBagIcon className={`w-full text-black`} />{" "}
-          <div className="circle-bag w-[1.3rem] h-[1.3rem] border-black border-[0.1rem] absolute top-[1.15rem] right-[9.1rem] rounded-full flex 
-                          tablet:right-[9.2rem] tablet:top-[1.22rem] desktopM:right-[9.9rem] desktopL:right-[11.2rem] desktopxl:right-[17.4rem]
+          <div className="circle-bag w-[1.3rem] h-[1.3rem] border-black border-[0.1rem] absolute top-[0.8rem] right-[9.1rem] rounded-full flex 
+                          tablet:right-[9.35rem] tablet:top-[0.8rem] desktopM:right-[10rem] desktopL:right-[11.5rem] desktopxl:right-[17.6rem]
           ">
     <span className="m-auto text-[0.8rem]">{dataAdminBag.length} </span>
 
@@ -110,7 +116,7 @@ export default function   Navbar() {
         </Link>
 
         <Link
-          href={`/user-login`}
+          href={`/register-page`}
           className={`w-[30%] h-full  flex
                  tablet:w-[14%]
                     desktopM:w-[11%]
