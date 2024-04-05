@@ -1,7 +1,7 @@
 "use client"
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import logos from "../../images-dir/logoImages";
 import { BookmarkIcon } from "@heroicons/react/24/outline";
 import { ShoppingBagIcon } from "@heroicons/react/24/outline";
@@ -12,6 +12,35 @@ import { useSelector } from "react-redux";
 export default function   Navbar() {
   const dataAdminBag = useSelector((state) => state.usersManagement.admin.allBasket)
   const dataAdminFavs = useSelector((state) => state.usersManagement.admin.favorites)
+
+  const [displayLogged, setDisplayLogged] = useState(false)
+
+  // document.querySelector(".dropdown-area").style.display = 'hidden';
+
+  const handleFormBox = () => {
+    setDisplayLogged(!displayLogged)
+    if (displayLogged) {
+      document.querySelector(".dropdown-area").style.display = `flex`;
+    }
+    else if (!displayLogged) {
+      document.querySelector(".dropdown-area").style.display = `none`;
+
+    }
+  }
+
+  const [isClicked, setIsClicked] = useState(false)
+
+
+  const handleBox = () => {
+    setIsClicked(!isClicked)
+    if (isClicked) {
+      document.querySelector(".dropdown-area").style.display = `none`
+    } else if (!isClicked) {
+      document.querySelector(".dropdown-area").style.display = `flex`
+
+    }
+  }
+
   return (
     <nav
       className={`w-full h-full  flex  bg-[rgba(221,221,221,0.1)] border-[rgba(0,0,0,0.2)] border-b rounded-b-3xl `}
@@ -53,28 +82,17 @@ export default function   Navbar() {
                             tablet: my-auto 
             `}
         >
-          {/* <input
-            type="outline"
-            name=""
-            id="gameSearched"
-            className={` hidden placeholder:text-black
-                                                        tablet:flex tablet:w-full tablet:rounded-3xl tablet:bg-transparent
-                                                        tablet:
-                                                        tablet:pl-5
-
-                                                        `}
-            placeholder="Search a book... "
-          /> */}
+ 
           <Link 
           href={`/search-page/`}
           >
           
           <MagnifyingGlassIcon
             className={` text-black absolute top-[1.9rem] w-[1.5rem]
-            tablet:absolute  tablet:top-[1.9rem] tablet:w-[1.5rem] tablet:left-[27.3rem]
-            desktopM:left-[38.5rem]
-            desktopL:left-[55rem]
-            desktopxl:left-[71.5rem]
+            tablet:absolute  tablet:top-[1.9rem] tablet:w-[1.5rem] tablet:right-[16.5rem]
+            desktopM:right-[21.5rem]
+            desktopL:right-[26rem]
+            desktopxl:right-[40.5rem]
             `}
             />
           </Link>
@@ -90,7 +108,7 @@ export default function   Navbar() {
         >
           <BookmarkIcon className={`w-full text-black `} />
           <div className="circle-bag w-[1.3rem] h-[1.3rem] border-black border-[0.1rem] absolute top-[0.8rem] right-[11.5rem] rounded-full flex 
-                    tablet:right-[12.4rem] tablet:top-[0.8rem] desktopM:top-[0.8rem] desktopM:right-[12.5rem]  desktopL:right-[14rem] desktopxl:right-[23.5rem]
+                    tablet:right-[12.4rem] tablet:top-[0.8rem] desktopM:top-[0.8rem] desktopM:right-[17rem]  desktopL:right-[20.5rem] desktopxl:right-[31.6rem]
           ">
     <span className="m-auto text-[0.8rem]">{dataAdminFavs.length} </span>
           </div>
@@ -107,7 +125,7 @@ export default function   Navbar() {
         >
           <ShoppingBagIcon className={`w-full text-black`} />{" "}
           <div className="circle-bag w-[1.3rem] h-[1.3rem] border-black border-[0.1rem] absolute top-[0.8rem] right-[9.1rem] rounded-full flex 
-                          tablet:right-[9.35rem] tablet:top-[0.8rem] desktopM:right-[10rem] desktopL:right-[11.5rem] desktopxl:right-[17.6rem]
+                          tablet:right-[9.35rem] tablet:top-[0.8rem] desktopM:right-[12.2rem] desktopL:right-[14.7rem] desktopxl:right-[21.6rem]
           ">
     <span className="m-auto text-[0.8rem]">{dataAdminBag.length} </span>
 
@@ -115,8 +133,8 @@ export default function   Navbar() {
 
         </Link>
 
-        <Link
-          href={`/register-page`}
+        <div
+          // href={`/register-page`}
           className={`w-[30%] h-full  flex
                  tablet:w-[14%]
                     desktopM:w-[11%]
@@ -125,13 +143,36 @@ export default function   Navbar() {
         >
           <li className="flex w-full h-full">
             <button
+            onClick={() => handleFormBox()}
               type="button"
               className="w-[2.4rem] h-[2.4rem] bg-[rgba(221,221,221,0.4)] outline-white outline outline-1 rounded-3xl m-auto"
             >
               U 
             </button>
           </li>
-        </Link>
+        </div>
+
+          <div className="dropdown-area w-[8rem] h-[6rem] hidden border border-[rgba(0,0,0,0.5)] absolute z-40 right-[2rem] top-[5.2rem] rounded-xl flex flex-col justify-evenly desktopL:right-[3.7rem] desktopxl:right-[5rem]  ">
+
+            <Link
+            onClick={() => handleBox()}
+            href={`/register-page/`}
+            >
+              <button type="button" className="w-full h-[2.2rem] hover:underline-offset-4 hover:underline">
+                Register
+              </button>
+            </Link>
+            <Link
+            onClick={() => handleBox()}
+
+            href={`/login-page/`}
+            >
+              <button type="button" className="w-full h-[2.2rem]  hover:underline-offset-4 hover:underline">
+                Login
+              </button>
+            </Link>
+          </div>
+
       </ul>
     </nav>
   );
