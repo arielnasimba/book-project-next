@@ -9,21 +9,24 @@ export default function SearchArea() {
 
     useEffect(() => {
         // Si la bibliothèque est chargée, initialise la liste filtrée avec la bibliothèque complète
-        if (libraryContent && libraryContent.length > 0) {
+        if (libraryContent) {
             setFilteredLib([...libraryContent]);
         }
-    }, [libraryContent]);
+    }, []);
 
     // Met à jour la liste filtrée à chaque changement de searchTerm
     useEffect(() => {
-        if (searchTerm.trim().toLowerCase() !== '') {
-            const filteredBooks = libraryContent.filter((book) =>
-                book.title.toLowerCase().includes(searchTerm.toLowerCase().trim())
-            );
-            setFilteredLib(filteredBooks);
-        } else {
-            // Si le terme de recherche est vide, affiche la bibliothèque complète
-            setFilteredLib([...libraryContent]);
+        if (libraryContent) {
+            
+            if (searchTerm.trim().toLowerCase() !== '') {
+                const filteredBooks = libraryContent.filter((book) =>
+                    book.title.toLowerCase().includes(searchTerm.toLowerCase().trim())
+                );
+                setFilteredLib(filteredBooks);
+            } else {
+                // Si le terme de recherche est vide, affiche la bibliothèque complète
+                setFilteredLib([...libraryContent]);
+            }
         }
     }, [searchTerm, libraryContent]);
 

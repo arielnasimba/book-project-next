@@ -45,7 +45,7 @@ export default function Carousel() {
 
 {contentForCarouselArray.length > 0 ? (
         contentForCarouselArray.map((singleBook, i) => (
-          <div key={i} className='carousel-item w-[10rem] h-[10rem] tablet:h-[15rem] desktopM:h-[18rem] ' style={{ display: i >= currentIndex && i < currentIndex + 3 ? 'block' : 'none' }}>
+          <div key={i} className='carousel-item w-[10rem] h-[10rem] tablet:h-[15rem] desktopM:h-[18rem]  ' style={{ display: i >= currentIndex && i < currentIndex + 3 ? 'block' : 'none' }}>
             <img src={singleBook.image_url} alt={singleBook.title} className='w-full h-full rounded-xl' />
           </div>
         ))

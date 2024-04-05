@@ -29,8 +29,18 @@ export default function   Navbar() {
   }
 
   const [isClicked, setIsClicked] = useState(false)
+  const [isClickedSideBar, setIsClickedSideBar] = useState(false)
 
+  // document.querySelector(".sidebar-area").style.color = "red"
+  const handleSidebar = () => {
+    setIsClickedSideBar(!isClicked)
+    if (isClickedSideBar) {
+      document.querySelector(".sidebar-area").style.transform = `translateX(9rem)`
+    } else if (!isClickedSideBar) {
+      document.querySelector(".sidebar-area").style.transform = `translateX(-9rem)`
 
+    }
+  }
   const handleBox = () => {
     setIsClicked(!isClicked)
     if (isClicked) {
@@ -55,8 +65,28 @@ export default function   Navbar() {
                     desktopxl:w-[2.5%] 
             `}
         >
-          <Bars3CenterLeftIcon className={`w-full m-auto text-black`} />
+          <Bars3CenterLeftIcon onClick={() => handleSidebar()} className={`w-full m-auto text-black`} />
         </li>
+        <div className="sidebar-area w-[8rem] h-[10rem] -translate-x-[9rem] duration-500 border bg-blue-50 border-[rgba(0,0,0,0.5)] absolute z-40 left-[0.2rem] top-[5.2rem] rounded-xl flex flex-col justify-evenly desktopL:right-[3.7rem] desktopxl:right-[5rem]  ">
+
+<Link
+// onClick={() => handleSidebar()}
+href={`/register-page/`}
+>
+  <p  className="w-full h-[2.2rem] hover:underline-offset-4 hover:underline">
+    Register
+  </p>
+</Link>
+<Link
+// onClick={() => handleSidebar()}
+
+href={`/login-page/`}
+>
+  <p  className="w-full h-[2.2rem]  hover:underline-offset-4 hover:underline">
+    Login
+  </p>
+</Link>
+</div>
 
         <Link
           href={`/`}
