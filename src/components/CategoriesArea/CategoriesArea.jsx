@@ -158,9 +158,9 @@ export default function CategoriesArea() {
             
               
             {arrayListCat ? (
-              arrayListCat.map((booksGenre) => {
+              arrayListCat.map((booksGenre, i) => {
                   return(
-                    <div onClick={(e) => setSelectedCategories(booksGenre.codeCat)}
+                    <div key={i} onClick={(e) => setSelectedCategories(booksGenre.codeCat)}
                     className=" flex justify-center gap-x-2  items-center cursor-pointer ">
                       
                     <p className="" key={booksGenre.title}>
