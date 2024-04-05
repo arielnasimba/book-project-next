@@ -30,7 +30,7 @@ export default function LoggedIn() {
       <input type="text" name="" id="userName" className="w-full h-[15%] border border-black rounded-3xl placeholder:pl-5 " placeholder="Enter your username" />
              
       <p>Password *</p>
-      <input type="password" name="" id="userPwd" className="w-full h-[15%] border border-black rounded-3xl placeholder:pl-5" placeholder="***********"/>
+      <input type="password" name="" id="userPwd" className="w-full c h-[15%] border border-black rounded-3xl placeholder:pl-5" placeholder="***********"/>
 
       {/* <p>Confirm Password *</p>
       <input type="password" name="" id="userPwd" className="w-full h-[28%] rounded-3xl placeholder:pl-5" placeholder="***********"/> */}
